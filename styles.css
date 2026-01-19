@@ -418,18 +418,13 @@ body {
 .service-icon {
     width: 50px;
     height: 50px;
-    margin-bottom: 1rem;
+    margin: 0 auto 1rem auto;
     display: flex;
     align-items: center;
     justify-content: center;
     background: linear-gradient(135deg, rgba(0, 102, 204, 0.1) 0%, rgba(0, 168, 232, 0.1) 100%);
     border-radius: 10px;
     padding: 0.5rem;
-}
-
-.service-icon svg {
-    width: 100%;
-    height: 100%;
 }
 
 .service-icon svg {
@@ -447,6 +442,7 @@ body {
     font-weight: 700;
     color: var(--text-dark);
     margin-bottom: 0.75rem;
+    text-align: center;
 }
 
 .method-card > p {
