@@ -31,22 +31,20 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Form Submission Handler
+// Form Submission Handler - Formspree handles submission
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
+        // Formspree will handle the submission
+        // Show loading state
+        const submitBtn = this.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
         
-        // Get form data
-        const formData = new FormData(this);
-        const data = Object.fromEntries(formData);
-        
-        // Here you would typically send the data to a server
-        // For now, we'll just show an alert
-        alert('Thank you for your message! We will contact you soon.');
-        
-        // Reset form
-        this.reset();
+        // Formspree will handle the rest
+        // If you want to show a success message, you can add a hidden input
+        // or handle it via Formspree's redirect/response
     });
 }
 
@@ -165,18 +163,26 @@ const statsObserver = new IntersectionObserver((entries) => {
             const statNumber = entry.target.querySelector('.stat-number');
             if (statNumber) {
                 const text = statNumber.textContent.trim();
-                // Extract number if it's a number, otherwise keep text (handles "48hr", "1000+", etc.)
+                // Extract number if it's a number, otherwise keep text (handles "48 Hours", "100%", etc.)
                 const number = parseInt(text.replace(/\D/g, ''));
                 if (!isNaN(number) && number > 0) {
                     const originalText = text;
-                    animateCounter(statNumber, number);
-                    // Restore suffix if it exists (like "hr", "+", etc.)
-                    setTimeout(() => {
-                        const suffix = originalText.replace(/\d/g, '');
-                        if (suffix) {
+                    // Extract suffix (everything after the number, preserving original spacing)
+                    const match = originalText.match(/^(\d+)(\s*)(.*)$/);
+                    const suffix = match ? (match[2] + match[3]) : ''; // Include space if present
+                    
+                    // Animate counter with suffix
+                    let start = 0;
+                    const increment = number / (2000 / 16);
+                    const timer = setInterval(() => {
+                        start += increment;
+                        if (start >= number) {
                             statNumber.textContent = number + suffix;
+                            clearInterval(timer);
+                        } else {
+                            statNumber.textContent = Math.floor(start) + suffix;
                         }
-                    }, 2000);
+                    }, 16);
                 }
             }
         }
