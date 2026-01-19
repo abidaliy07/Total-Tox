@@ -19,22 +19,43 @@
                     <a href="#">
                         <div class="logo-container">
                             <div class="logo-icon">
-                                <svg width="50" height="50" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+                                <svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
                                     <defs>
-                                        <linearGradient id="logoGradient" x1="0%" y1="100%" x2="0%" y2="0%">
+                                        <linearGradient id="logoLiquidGradient" x1="0%" y1="100%" x2="0%" y2="0%">
                                             <stop offset="0%" style="stop-color:#0052A3;stop-opacity:1" />
+                                            <stop offset="50%" style="stop-color:#0088CC;stop-opacity:1" />
                                             <stop offset="100%" style="stop-color:#00A8E8;stop-opacity:1" />
                                         </linearGradient>
                                     </defs>
-                                    <rect x="10" y="8" width="10" height="30" rx="5" fill="none" stroke="#0052A3" stroke-width="2"/>
-                                    <ellipse cx="15" cy="8" rx="5" ry="2" fill="#0052A3"/>
-                                    <rect x="12" y="20" width="6" height="15" fill="url(#logoGradient)" rx="3"/>
-                                    <path d="M8 25 L12 30 L20 22" stroke="white" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                                    <!-- Test tube outline (dark blue) -->
+                                    <rect x="12" y="10" width="12" height="36" rx="6" fill="none" stroke="#0052A3" stroke-width="2.5" stroke-linecap="round"/>
+                                    <!-- Test tube rim -->
+                                    <ellipse cx="18" cy="10" rx="6" ry="3" fill="#0052A3"/>
+                                    <!-- Liquid fill with gradient (fills about 2/3) -->
+                                    <rect x="14" y="24" width="8" height="18" fill="url(#logoLiquidGradient)" rx="4"/>
+                                    <!-- Bubbles in liquid (light blue) -->
+                                    <circle cx="16" cy="30" r="1.5" fill="#00D4AA" opacity="0.8"/>
+                                    <circle cx="20" cy="33" r="1.2" fill="#00D4AA" opacity="0.7"/>
+                                    <circle cx="18" cy="36" r="1.3" fill="#00D4AA" opacity="0.8"/>
+                                    <circle cx="21" cy="38" r="1" fill="#00D4AA" opacity="0.7"/>
+                                    <circle cx="16" cy="35" r="1.1" fill="#00D4AA" opacity="0.8"/>
+                                    <circle cx="19" cy="32" r="0.9" fill="#00D4AA" opacity="0.7"/>
+                                    <!-- White checkmark -->
+                                    <path d="M 10 28 L 16 36 L 26 24" 
+                                          stroke="white" 
+                                          stroke-width="3.5" 
+                                          stroke-linecap="round" 
+                                          stroke-linejoin="round"
+                                          fill="none"/>
                                 </svg>
                             </div>
                             <div class="logo-text">
                                 <span class="logo-main">Total Tox</span>
-                                <span class="logo-sub">DRUG TESTING & OCCUPATIONAL HEALTH</span>
+                                <div class="logo-tagline">
+                                    <span class="tagline-line"></span>
+                                    <span class="tagline-text">Drug Testing Services</span>
+                                    <span class="tagline-line"></span>
+                                </div>
                             </div>
                         </div>
                     </a>
@@ -83,131 +104,79 @@
         </div>
     </section>
 
-    <!-- Services Section - Horizontal Cards -->
+    <!-- Services Section - Method Cards -->
     <section id="services" class="services">
         <div class="container">
             <div class="section-header">
-                <h2>Comprehensive Drug Testing & Occupational Health Services</h2>
-                <p>From DOT compliance to employment screening, we provide all the testing services your business needs</p>
+                <h2>Drug Testing Methods & Panels</h2>
+                <p>We offer multiple testing methods and customizable panels to meet your specific needs.</p>
             </div>
-            <div class="services-list">
-                <!-- Service 1: DOT Testing -->
-                <div class="service-card-horizontal">
-                    <div class="service-sidebar">
-                        <span class="service-label">DOT Testing</span>
-                    </div>
-                    <div class="service-content">
-                        <h3>DOT Drug Testing</h3>
-                        <p>Fully compliant DOT drug testing services following 49 CFR Part 40 regulations. We provide the required 5-panel drug test for all safety-sensitive transportation employees.</p>
-                        <ul class="service-features">
-                            <li><span class="checkmark">✓</span> Pre-employment DOT drug testing</li>
-                            <li><span class="checkmark">✓</span> Random DOT drug testing programs</li>
-                            <li><span class="checkmark">✓</span> Post-accident DOT drug testing</li>
-                            <li><span class="checkmark">✓</span> Return-to-duty testing</li>
-                            <li><span class="checkmark">✓</span> Reasonable suspicion testing</li>
-                            <li><span class="checkmark">✓</span> Follow-up testing</li>
-                        </ul>
-                        <p class="service-compliance"><strong>Compliance:</strong> 49 CFR Part 40, FMCSA, SAMHSA-certified laboratories</p>
+            <div class="services-grid-methods">
+                <!-- Service 1: Urine Drug Testing -->
+                <div class="method-card">
+                    <h3>Urine Drug Testing</h3>
+                    <p>The most common and widely accepted method for drug testing. Available in multiple panel configurations.</p>
+                    <div class="method-details">
+                        <div class="detail-box">
+                            <strong>Detection Window:</strong> 1-30 days depending on substance
+                        </div>
+                        <div class="detail-box">
+                            <strong>Panels Available:</strong> 5, 7, 10, 12-panel
+                        </div>
+                        <div class="detail-box">
+                            <strong>DOT Compliant:</strong> Yes, SAMHSA-certified
+                        </div>
                     </div>
                 </div>
 
-                <!-- Service 2: Non-DOT Testing -->
-                <div class="service-card-horizontal">
-                    <div class="service-sidebar">
-                        <span class="service-label">Non-DOT Testing</span>
-                    </div>
-                    <div class="service-content">
-                        <h3>Non-DOT Drug Testing</h3>
-                        <p>Customizable drug testing programs for businesses not regulated by DOT. Create a program tailored to your specific workplace needs with flexible panels and scheduling.</p>
-                        <ul class="service-features">
-                            <li><span class="checkmark">✓</span> Customizable testing panels (5, 7, 10, 12-panel)</li>
-                            <li><span class="checkmark">✓</span> Flexible scheduling options</li>
-                            <li><span class="checkmark">✓</span> Business-specific programs</li>
-                            <li><span class="checkmark">✓</span> Random testing program management</li>
-                            <li><span class="checkmark">✓</span> Post-accident testing</li>
-                            <li><span class="checkmark">✓</span> Reasonable suspicion testing</li>
-                        </ul>
-                        <p class="service-compliance"><strong>Options:</strong> Urine, hair follicle, oral fluid, blood testing available</p>
+                <!-- Service 2: Hair Follicle Testing -->
+                <div class="method-card">
+                    <h3>Hair Follicle Testing</h3>
+                    <p>Provides the longest detection window, ideal for pre-employment screening and long-term monitoring.</p>
+                    <div class="method-details">
+                        <div class="detail-box">
+                            <strong>Detection Window:</strong> Up to 90 days
+                        </div>
+                        <div class="detail-box">
+                            <strong>Panels Available:</strong> 5, 7, 10, 12-panel
+                        </div>
+                        <div class="detail-box">
+                            <strong>Best For:</strong> Pre-employment, long-term monitoring
+                        </div>
                     </div>
                 </div>
 
-                <!-- Service 3: Employment Testing -->
-                <div class="service-card-horizontal">
-                    <div class="service-sidebar">
-                        <span class="service-label">Employment Testing</span>
-                    </div>
-                    <div class="service-content">
-                        <h3>Employment Drug Testing</h3>
-                        <p>Comprehensive pre-employment and workplace drug screening services to help you maintain a safe, drug-free workplace environment.</p>
-                        <ul class="service-features">
-                            <li><span class="checkmark">✓</span> Pre-employment drug screening</li>
-                            <li><span class="checkmark">✓</span> Random drug testing programs</li>
-                            <li><span class="checkmark">✓</span> Post-accident testing</li>
-                            <li><span class="checkmark">✓</span> Reasonable suspicion testing</li>
-                            <li><span class="checkmark">✓</span> Return-to-work testing</li>
-                            <li><span class="checkmark">✓</span> Periodic/annual testing</li>
-                        </ul>
-                        <p class="service-compliance"><strong>Turnaround:</strong> Results available within 24-48 hours</p>
+                <!-- Service 3: Oral Fluid Testing -->
+                <div class="method-card">
+                    <h3>Oral Fluid/Saliva Testing</h3>
+                    <p>Non-invasive method that's difficult to adulterate. Fast results and convenient collection.</p>
+                    <div class="method-details">
+                        <div class="detail-box">
+                            <strong>Detection Window:</strong> 24-48 hours
+                        </div>
+                        <div class="detail-box">
+                            <strong>Panels Available:</strong> 5, 7, 10-panel
+                        </div>
+                        <div class="detail-box">
+                            <strong>DOT Compliant:</strong> Yes, DOT-approved method
+                        </div>
                     </div>
                 </div>
 
-                <!-- Service 4: Random Testing -->
-                <div class="service-card-horizontal">
-                    <div class="service-sidebar">
-                        <span class="service-label">Random Testing</span>
-                    </div>
-                    <div class="service-content">
-                        <h3>Random Drug Testing Programs</h3>
-                        <p>Manage your random drug testing program with our comprehensive services. We help ensure compliance and deter workplace drug use.</p>
-                        <ul class="service-features">
-                            <li><span class="checkmark">✓</span> Program design and management</li>
-                            <li><span class="checkmark">✓</span> Compliance assistance</li>
-                            <li><span class="checkmark">✓</span> Fast turnaround times</li>
-                            <li><span class="checkmark">✓</span> Automated selection systems</li>
-                            <li><span class="checkmark">✓</span> Detailed reporting</li>
-                            <li><span class="checkmark">✓</span> DOT and non-DOT programs</li>
-                        </ul>
-                        <p class="service-compliance"><strong>Support:</strong> Full program management and compliance consulting</p>
-                    </div>
-                </div>
-
-                <!-- Service 5: DNA Testing -->
-                <div class="service-card-horizontal">
-                    <div class="service-sidebar">
-                        <span class="service-label">DNA Testing</span>
-                    </div>
-                    <div class="service-content">
-                        <h3>DNA Testing Services</h3>
-                        <p>Accurate and confidential DNA testing services for various purposes including paternity, legal, and personal identification needs.</p>
-                        <ul class="service-features">
-                            <li><span class="checkmark">✓</span> Paternity testing</li>
-                            <li><span class="checkmark">✓</span> Legal DNA testing</li>
-                            <li><span class="checkmark">✓</span> Immigration DNA testing</li>
-                            <li><span class="checkmark">✓</span> Confidential results</li>
-                            <li><span class="checkmark">✓</span> Court-admissible results</li>
-                            <li><span class="checkmark">✓</span> Fast processing</li>
-                        </ul>
-                        <p class="service-compliance"><strong>Accuracy:</strong> 99.9% accuracy guaranteed</p>
-                    </div>
-                </div>
-
-                <!-- Service 6: Saliva Testing -->
-                <div class="service-card-horizontal">
-                    <div class="service-sidebar">
-                        <span class="service-label">Saliva Testing</span>
-                    </div>
-                    <div class="service-content">
-                        <h3>Saliva/Oral Fluid Testing</h3>
-                        <p>Non-invasive oral fluid drug testing that's difficult to adulterate. Fast, convenient, and ideal for various testing situations.</p>
-                        <ul class="service-features">
-                            <li><span class="checkmark">✓</span> Non-invasive collection</li>
-                            <li><span class="checkmark">✓</span> Quick results</li>
-                            <li><span class="checkmark">✓</span> Difficult to adulterate</li>
-                            <li><span class="checkmark">✓</span> DOT-approved method</li>
-                            <li><span class="checkmark">✓</span> Multiple panel options</li>
-                            <li><span class="checkmark">✓</span> On-site collection available</li>
-                        </ul>
-                        <p class="service-compliance"><strong>Detection Window:</strong> 24-48 hours for most substances</p>
+                <!-- Service 4: Blood Drug Testing -->
+                <div class="method-card">
+                    <h3>Blood Drug Testing</h3>
+                    <p>Most accurate method for recent drug use detection. Used for legal and medical purposes.</p>
+                    <div class="method-details">
+                        <div class="detail-box">
+                            <strong>Detection Window:</strong> Hours to days
+                        </div>
+                        <div class="detail-box">
+                            <strong>Accuracy:</strong> Highest accuracy available
+                        </div>
+                        <div class="detail-box">
+                            <strong>Best For:</strong> Legal cases, medical purposes
+                        </div>
                     </div>
                 </div>
             </div>
