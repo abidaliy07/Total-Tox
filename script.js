@@ -101,30 +101,41 @@ function highlightNavigation() {
 window.addEventListener('scroll', highlightNavigation);
 
 // Flip card click handler for mobile (since hover doesn't work well on mobile)
-function setupMobileFlipCards() {
-    if (window.innerWidth <= 768) {
-        document.querySelectorAll('.flip-card').forEach(card => {
-            // Remove existing listeners to avoid duplicates
-            const newCard = card.cloneNode(true);
-            card.parentNode.replaceChild(newCard, card);
-            
-            newCard.addEventListener('click', function(e) {
-                e.stopPropagation();
-                const inner = this.querySelector('.flip-card-inner');
-                const currentTransform = window.getComputedStyle(inner).transform;
-                if (currentTransform.includes('matrix') && Math.abs(parseFloat(currentTransform.split(',')[0])) < 0.1) {
-                    inner.style.transform = 'rotateY(180deg)';
-                } else {
-                    inner.style.transform = 'rotateY(0deg)';
-                }
+document.addEventListener('DOMContentLoaded', () => {
+    const flipCards = document.querySelectorAll('.flip-card');
+    
+    function handleMobileFlip() {
+        if (window.innerWidth <= 768) {
+            flipCards.forEach(card => {
+                card.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const inner = this.querySelector('.flip-card-inner');
+                    const isFlipped = inner.classList.contains('flipped');
+                    
+                    if (isFlipped) {
+                        inner.classList.remove('flipped');
+                        inner.style.transform = 'rotateY(0deg)';
+                    } else {
+                        inner.classList.add('flipped');
+                        inner.style.transform = 'rotateY(180deg)';
+                    }
+                });
             });
-        });
+        }
     }
-}
-
-// Setup on load and resize
-setupMobileFlipCards();
-window.addEventListener('resize', setupMobileFlipCards);
+    
+    handleMobileFlip();
+    window.addEventListener('resize', () => {
+        // Re-evaluate on resize if needed
+        if (window.innerWidth > 768) {
+            flipCards.forEach(card => {
+                const inner = card.querySelector('.flip-card-inner');
+                inner.classList.remove('flipped');
+                inner.style.transform = '';
+            });
+        }
+    });
+});
 
 // Add loading animation
 window.addEventListener('load', () => {
