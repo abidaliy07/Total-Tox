@@ -17,7 +17,26 @@
             <div class="nav-wrapper">
                 <div class="logo">
                     <a href="#">
-                        <img src="logo.svg" alt="Total Tox Drug Testing Services" class="logo-img">
+                        <div class="logo-container">
+                            <div class="logo-icon">
+                                <svg width="50" height="50" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+                                    <defs>
+                                        <linearGradient id="logoGradient" x1="0%" y1="100%" x2="0%" y2="0%">
+                                            <stop offset="0%" style="stop-color:#0052A3;stop-opacity:1" />
+                                            <stop offset="100%" style="stop-color:#00A8E8;stop-opacity:1" />
+                                        </linearGradient>
+                                    </defs>
+                                    <rect x="10" y="8" width="10" height="30" rx="5" fill="none" stroke="#0052A3" stroke-width="2"/>
+                                    <ellipse cx="15" cy="8" rx="5" ry="2" fill="#0052A3"/>
+                                    <rect x="12" y="20" width="6" height="15" fill="url(#logoGradient)" rx="3"/>
+                                    <path d="M8 25 L12 30 L20 22" stroke="white" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                                </svg>
+                            </div>
+                            <div class="logo-text">
+                                <span class="logo-main">Total Tox</span>
+                                <span class="logo-sub">DRUG TESTING & OCCUPATIONAL HEALTH</span>
+                            </div>
+                        </div>
                     </a>
                 </div>
                 <ul class="nav-menu" id="navMenu">
@@ -64,186 +83,131 @@
         </div>
     </section>
 
-    <!-- Services Section with Flip Cards -->
+    <!-- Services Section - Horizontal Cards -->
     <section id="services" class="services">
         <div class="container">
             <div class="section-header">
-                <h2>Comprehensive Drug Testing Services</h2>
-                <p>All Services. One Provider. Complete Compliance.</p>
+                <h2>Comprehensive Drug Testing & Occupational Health Services</h2>
+                <p>From DOT compliance to employment screening, we provide all the testing services your business needs</p>
             </div>
-            <div class="services-grid">
-                <!-- Service Card 1 -->
-                <div class="flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <div class="service-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                                    <path d="M9 2v20M15 2v20M3 6h18M3 12h18M3 18h18"/>
-                                    <circle cx="9" cy="6" r="2" fill="currentColor"/>
-                                    <circle cx="15" cy="12" r="2" fill="currentColor"/>
-                                    <circle cx="9" cy="18" r="2" fill="currentColor"/>
-                                </svg>
-                            </div>
-                            <h3>Urine Drug Testing</h3>
-                            <p>Industry-standard urine drug testing with comprehensive panels</p>
-                        </div>
-                        <div class="flip-card-back">
-                            <h3>Urine Drug Testing</h3>
-                            <p>Our urine drug testing services offer the most widely accepted method for workplace drug screening. We provide:</p>
-                            <ul>
-                                <li>5-panel to 13-panel test options</li>
-                                <li>Instant and lab-based testing</li>
-                                <li>DOT-compliant collections</li>
-                                <li>Chain of custody documentation</li>
-                                <li>Fast turnaround times</li>
-                            </ul>
-                            <a href="#contact" class="btn-card">Learn More</a>
-                        </div>
+            <div class="services-list">
+                <!-- Service 1: DOT Testing -->
+                <div class="service-card-horizontal">
+                    <div class="service-sidebar">
+                        <span class="service-label">DOT Testing</span>
+                    </div>
+                    <div class="service-content">
+                        <h3>DOT Drug Testing</h3>
+                        <p>Fully compliant DOT drug testing services following 49 CFR Part 40 regulations. We provide the required 5-panel drug test for all safety-sensitive transportation employees.</p>
+                        <ul class="service-features">
+                            <li><span class="checkmark">✓</span> Pre-employment DOT drug testing</li>
+                            <li><span class="checkmark">✓</span> Random DOT drug testing programs</li>
+                            <li><span class="checkmark">✓</span> Post-accident DOT drug testing</li>
+                            <li><span class="checkmark">✓</span> Return-to-duty testing</li>
+                            <li><span class="checkmark">✓</span> Reasonable suspicion testing</li>
+                            <li><span class="checkmark">✓</span> Follow-up testing</li>
+                        </ul>
+                        <p class="service-compliance"><strong>Compliance:</strong> 49 CFR Part 40, FMCSA, SAMHSA-certified laboratories</p>
                     </div>
                 </div>
 
-                <!-- Service Card 2 -->
-                <div class="flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <div class="service-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                                    <path d="M5 17H4a2 2 0 01-2-2V5a2 2 0 012-2h16a2 2 0 012 2v10a2 2 0 01-2 2h-1"/>
-                                    <path d="M12 15l-4-4 4-4M8 11h8"/>
-                                    <path d="M9 17h6"/>
-                                </svg>
-                            </div>
-                            <h3>DOT Drug Testing</h3>
-                            <p>FMCSA-compliant DOT drug and alcohol testing programs</p>
-                        </div>
-                        <div class="flip-card-back">
-                            <h3>DOT Drug Testing</h3>
-                            <p>Full compliance with Department of Transportation regulations for commercial drivers:</p>
-                            <ul>
-                                <li>Pre-employment DOT testing</li>
-                                <li>Random drug testing programs</li>
-                                <li>Post-accident testing</li>
-                                <li>Reasonable suspicion testing</li>
-                                <li>Return-to-duty testing</li>
-                                <li>Follow-up testing programs</li>
-                            </ul>
-                            <a href="#contact" class="btn-card">Learn More</a>
-                        </div>
+                <!-- Service 2: Non-DOT Testing -->
+                <div class="service-card-horizontal">
+                    <div class="service-sidebar">
+                        <span class="service-label">Non-DOT Testing</span>
+                    </div>
+                    <div class="service-content">
+                        <h3>Non-DOT Drug Testing</h3>
+                        <p>Customizable drug testing programs for businesses not regulated by DOT. Create a program tailored to your specific workplace needs with flexible panels and scheduling.</p>
+                        <ul class="service-features">
+                            <li><span class="checkmark">✓</span> Customizable testing panels (5, 7, 10, 12-panel)</li>
+                            <li><span class="checkmark">✓</span> Flexible scheduling options</li>
+                            <li><span class="checkmark">✓</span> Business-specific programs</li>
+                            <li><span class="checkmark">✓</span> Random testing program management</li>
+                            <li><span class="checkmark">✓</span> Post-accident testing</li>
+                            <li><span class="checkmark">✓</span> Reasonable suspicion testing</li>
+                        </ul>
+                        <p class="service-compliance"><strong>Options:</strong> Urine, hair follicle, oral fluid, blood testing available</p>
                     </div>
                 </div>
 
-                <!-- Service Card 3 -->
-                <div class="flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <div class="service-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                                    <rect x="3" y="4" width="18" height="16" rx="2"/>
-                                    <path d="M7 8h10M7 12h10M7 16h6"/>
-                                    <circle cx="9" cy="8" r="1" fill="currentColor"/>
-                                    <circle cx="9" cy="12" r="1" fill="currentColor"/>
-                                </svg>
-                            </div>
-                            <h3>Non-DOT Drug Testing</h3>
-                            <p>Customized workplace drug testing for non-regulated industries</p>
-                        </div>
-                        <div class="flip-card-back">
-                            <h3>Non-DOT Drug Testing</h3>
-                            <p>Flexible drug testing solutions tailored to your company's specific needs:</p>
-                            <ul>
-                                <li>Pre-employment screening</li>
-                                <li>Random testing programs</li>
-                                <li>Post-accident testing</li>
-                                <li>Reasonable suspicion testing</li>
-                                <li>Annual or periodic testing</li>
-                                <li>Custom panel configurations</li>
-                            </ul>
-                            <a href="#contact" class="btn-card">Learn More</a>
-                        </div>
+                <!-- Service 3: Employment Testing -->
+                <div class="service-card-horizontal">
+                    <div class="service-sidebar">
+                        <span class="service-label">Employment Testing</span>
+                    </div>
+                    <div class="service-content">
+                        <h3>Employment Drug Testing</h3>
+                        <p>Comprehensive pre-employment and workplace drug screening services to help you maintain a safe, drug-free workplace environment.</p>
+                        <ul class="service-features">
+                            <li><span class="checkmark">✓</span> Pre-employment drug screening</li>
+                            <li><span class="checkmark">✓</span> Random drug testing programs</li>
+                            <li><span class="checkmark">✓</span> Post-accident testing</li>
+                            <li><span class="checkmark">✓</span> Reasonable suspicion testing</li>
+                            <li><span class="checkmark">✓</span> Return-to-work testing</li>
+                            <li><span class="checkmark">✓</span> Periodic/annual testing</li>
+                        </ul>
+                        <p class="service-compliance"><strong>Turnaround:</strong> Results available within 24-48 hours</p>
                     </div>
                 </div>
 
-                <!-- Service Card 4 -->
-                <div class="flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <div class="service-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
-                                    <circle cx="9" cy="7" r="4"/>
-                                    <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
-                                </svg>
-                            </div>
-                            <h3>Alcohol Testing</h3>
-                            <p>Breath alcohol testing and ETG testing services</p>
-                        </div>
-                        <div class="flip-card-back">
-                            <h3>Alcohol Testing</h3>
-                            <p>Comprehensive alcohol testing services for workplace safety:</p>
-                            <ul>
-                                <li>Breath alcohol testing (BAT)</li>
-                                <li>ETG alcohol testing (urine)</li>
-                                <li>DOT-compliant alcohol testing</li>
-                                <li>Evidential breath testing devices</li>
-                                <li>Immediate results available</li>
-                            </ul>
-                            <a href="#contact" class="btn-card">Learn More</a>
-                        </div>
+                <!-- Service 4: Random Testing -->
+                <div class="service-card-horizontal">
+                    <div class="service-sidebar">
+                        <span class="service-label">Random Testing</span>
+                    </div>
+                    <div class="service-content">
+                        <h3>Random Drug Testing Programs</h3>
+                        <p>Manage your random drug testing program with our comprehensive services. We help ensure compliance and deter workplace drug use.</p>
+                        <ul class="service-features">
+                            <li><span class="checkmark">✓</span> Program design and management</li>
+                            <li><span class="checkmark">✓</span> Compliance assistance</li>
+                            <li><span class="checkmark">✓</span> Fast turnaround times</li>
+                            <li><span class="checkmark">✓</span> Automated selection systems</li>
+                            <li><span class="checkmark">✓</span> Detailed reporting</li>
+                            <li><span class="checkmark">✓</span> DOT and non-DOT programs</li>
+                        </ul>
+                        <p class="service-compliance"><strong>Support:</strong> Full program management and compliance consulting</p>
                     </div>
                 </div>
 
-                <!-- Service Card 5 -->
-                <div class="flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <div class="service-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                                </svg>
-                            </div>
-                            <h3>Hair Follicle Testing</h3>
-                            <p>Extended detection window drug testing via hair analysis</p>
-                        </div>
-                        <div class="flip-card-back">
-                            <h3>Hair Follicle Testing</h3>
-                            <p>Hair follicle testing provides the longest detection window for drug use:</p>
-                            <ul>
-                                <li>90-day detection window</li>
-                                <li>Harder to tamper with</li>
-                                <li>Comprehensive drug panels</li>
-                                <li>Ideal for executive screening</li>
-                                <li>Highly accurate results</li>
-                            </ul>
-                            <a href="#contact" class="btn-card">Learn More</a>
-                        </div>
+                <!-- Service 5: DNA Testing -->
+                <div class="service-card-horizontal">
+                    <div class="service-sidebar">
+                        <span class="service-label">DNA Testing</span>
+                    </div>
+                    <div class="service-content">
+                        <h3>DNA Testing Services</h3>
+                        <p>Accurate and confidential DNA testing services for various purposes including paternity, legal, and personal identification needs.</p>
+                        <ul class="service-features">
+                            <li><span class="checkmark">✓</span> Paternity testing</li>
+                            <li><span class="checkmark">✓</span> Legal DNA testing</li>
+                            <li><span class="checkmark">✓</span> Immigration DNA testing</li>
+                            <li><span class="checkmark">✓</span> Confidential results</li>
+                            <li><span class="checkmark">✓</span> Court-admissible results</li>
+                            <li><span class="checkmark">✓</span> Fast processing</li>
+                        </ul>
+                        <p class="service-compliance"><strong>Accuracy:</strong> 99.9% accuracy guaranteed</p>
                     </div>
                 </div>
 
-                <!-- Service Card 6 -->
-                <div class="flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <div class="service-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
-                                    <circle cx="12" cy="10" r="3"/>
-                                </svg>
-                            </div>
-                            <h3>Oral Fluid Testing</h3>
-                            <p>Quick and non-invasive saliva-based drug testing</p>
-                        </div>
-                        <div class="flip-card-back">
-                            <h3>Oral Fluid Testing</h3>
-                            <p>Modern, convenient drug testing method using saliva samples:</p>
-                            <ul>
-                                <li>Non-invasive collection</li>
-                                <li>Quick results</li>
-                                <li>Detects recent drug use</li>
-                                <li>Difficult to adulterate</li>
-                                <li>Ideal for on-site testing</li>
-                            </ul>
-                            <a href="#contact" class="btn-card">Learn More</a>
-                        </div>
+                <!-- Service 6: Saliva Testing -->
+                <div class="service-card-horizontal">
+                    <div class="service-sidebar">
+                        <span class="service-label">Saliva Testing</span>
+                    </div>
+                    <div class="service-content">
+                        <h3>Saliva/Oral Fluid Testing</h3>
+                        <p>Non-invasive oral fluid drug testing that's difficult to adulterate. Fast, convenient, and ideal for various testing situations.</p>
+                        <ul class="service-features">
+                            <li><span class="checkmark">✓</span> Non-invasive collection</li>
+                            <li><span class="checkmark">✓</span> Quick results</li>
+                            <li><span class="checkmark">✓</span> Difficult to adulterate</li>
+                            <li><span class="checkmark">✓</span> DOT-approved method</li>
+                            <li><span class="checkmark">✓</span> Multiple panel options</li>
+                            <li><span class="checkmark">✓</span> On-site collection available</li>
+                        </ul>
+                        <p class="service-compliance"><strong>Detection Window:</strong> 24-48 hours for most substances</p>
                     </div>
                 </div>
             </div>

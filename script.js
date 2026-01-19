@@ -67,7 +67,7 @@ const observer = new IntersectionObserver((entries) => {
 
 // Observe elements for animation
 document.addEventListener('DOMContentLoaded', () => {
-    const animateElements = document.querySelectorAll('.flip-card, .feature-card, .type-card, .industry-item');
+    const animateElements = document.querySelectorAll('.service-card-horizontal, .feature-card, .type-card, .industry-item');
     animateElements.forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
@@ -100,42 +100,7 @@ function highlightNavigation() {
 
 window.addEventListener('scroll', highlightNavigation);
 
-// Flip card click handler for mobile (since hover doesn't work well on mobile)
-document.addEventListener('DOMContentLoaded', () => {
-    const flipCards = document.querySelectorAll('.flip-card');
-    
-    function handleMobileFlip() {
-        if (window.innerWidth <= 768) {
-            flipCards.forEach(card => {
-                card.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    const inner = this.querySelector('.flip-card-inner');
-                    const isFlipped = inner.classList.contains('flipped');
-                    
-                    if (isFlipped) {
-                        inner.classList.remove('flipped');
-                        inner.style.transform = 'rotateY(0deg)';
-                    } else {
-                        inner.classList.add('flipped');
-                        inner.style.transform = 'rotateY(180deg)';
-                    }
-                });
-            });
-        }
-    }
-    
-    handleMobileFlip();
-    window.addEventListener('resize', () => {
-        // Re-evaluate on resize if needed
-        if (window.innerWidth > 768) {
-            flipCards.forEach(card => {
-                const inner = card.querySelector('.flip-card-inner');
-                inner.classList.remove('flipped');
-                inner.style.transform = '';
-            });
-        }
-    });
-});
+// Mobile flip card handler removed - using horizontal cards now
 
 // Add loading animation
 window.addEventListener('load', () => {
