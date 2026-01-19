@@ -101,18 +101,30 @@ function highlightNavigation() {
 window.addEventListener('scroll', highlightNavigation);
 
 // Flip card click handler for mobile (since hover doesn't work well on mobile)
-if (window.innerWidth <= 768) {
-    document.querySelectorAll('.flip-card').forEach(card => {
-        card.addEventListener('click', function() {
-            const inner = this.querySelector('.flip-card-inner');
-            if (inner.style.transform === 'rotateY(180deg)') {
-                inner.style.transform = 'rotateY(0deg)';
-            } else {
-                inner.style.transform = 'rotateY(180deg)';
-            }
+function setupMobileFlipCards() {
+    if (window.innerWidth <= 768) {
+        document.querySelectorAll('.flip-card').forEach(card => {
+            // Remove existing listeners to avoid duplicates
+            const newCard = card.cloneNode(true);
+            card.parentNode.replaceChild(newCard, card);
+            
+            newCard.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const inner = this.querySelector('.flip-card-inner');
+                const currentTransform = window.getComputedStyle(inner).transform;
+                if (currentTransform.includes('matrix') && Math.abs(parseFloat(currentTransform.split(',')[0])) < 0.1) {
+                    inner.style.transform = 'rotateY(180deg)';
+                } else {
+                    inner.style.transform = 'rotateY(0deg)';
+                }
+            });
         });
-    });
+    }
 }
+
+// Setup on load and resize
+setupMobileFlipCards();
+window.addEventListener('resize', setupMobileFlipCards);
 
 // Add loading animation
 window.addEventListener('load', () => {
@@ -141,11 +153,19 @@ const statsObserver = new IntersectionObserver((entries) => {
             entry.target.classList.add('animated');
             const statNumber = entry.target.querySelector('.stat-number');
             if (statNumber) {
-                const text = statNumber.textContent;
-                // Extract number if it's a number, otherwise keep text
-                const number = parseInt(text);
-                if (!isNaN(number)) {
+                const text = statNumber.textContent.trim();
+                // Extract number if it's a number, otherwise keep text (handles "48hr", "1000+", etc.)
+                const number = parseInt(text.replace(/\D/g, ''));
+                if (!isNaN(number) && number > 0) {
+                    const originalText = text;
                     animateCounter(statNumber, number);
+                    // Restore suffix if it exists (like "hr", "+", etc.)
+                    setTimeout(() => {
+                        const suffix = originalText.replace(/\d/g, '');
+                        if (suffix) {
+                            statNumber.textContent = number + suffix;
+                        }
+                    }, 2000);
                 }
             }
         }
