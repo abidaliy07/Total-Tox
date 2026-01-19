@@ -434,9 +434,13 @@ body {
     }
 }
 
-/* Removed old services-grid - using horizontal cards */
-
-/* Removed flip-card styles - using horizontal cards */
+.flip-card {
+    background-color: transparent;
+    width: 100%;
+    height: 240px;
+    perspective: 1000px;
+    cursor: pointer;
+}
 
 .flip-card-inner {
     position: relative;
@@ -557,7 +561,13 @@ body {
     line-height: 1.3;
 }
 
-/* Old flip-card styles removed - using horizontal service cards */
+.flip-card-back ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-weight: bold;
+}
 
 /* Why Choose Us Section */
 .why-choose {
