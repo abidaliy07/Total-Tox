@@ -153,6 +153,7 @@ const observerOptions = {
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
             entry.target.style.opacity = '1';
             entry.target.style.transform = 'translateY(0)';
         }
@@ -160,10 +161,8 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Observe service cards and feature cards
-document.querySelectorAll('.service-card, .feature-card, .contact-card').forEach(card => {
-    card.style.opacity = '0';
-    card.style.transform = 'translateY(20px)';
-    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+document.querySelectorAll('.service-card, .service-card-large, .feature-card, .contact-card, .method-card, .panel-card, .about-feature').forEach(card => {
+    card.classList.add('fade-in');
     observer.observe(card);
 });
 
@@ -191,14 +190,14 @@ const formInputs = document.querySelectorAll('.appointment-form input, .appointm
 formInputs.forEach(input => {
     input.addEventListener('blur', () => {
         if (input.hasAttribute('required') && !input.value.trim()) {
-            input.style.borderColor = '#ef4444';
+            input.style.borderColor = '#dc2626';
         } else {
             input.style.borderColor = '';
         }
     });
 
     input.addEventListener('input', () => {
-        if (input.style.borderColor === 'rgb(239, 68, 68)') {
+        if (input.style.borderColor === 'rgb(220, 38, 38)') {
             input.style.borderColor = '';
         }
     });
@@ -214,18 +213,42 @@ if (window.innerWidth <= 768) {
     });
 }
 
-// Lazy load images (if you add images later)
-if ('loading' in HTMLImageElement.prototype) {
-    const images = document.querySelectorAll('img[loading="lazy"]');
-    images.forEach(img => {
-        img.src = img.dataset.src || img.src;
+// Counter animation for stats
+const animateCounter = (element, target, duration = 2000) => {
+    let start = 0;
+    const increment = target / (duration / 16);
+    const timer = setInterval(() => {
+        start += increment;
+        if (start >= target) {
+            element.textContent = target + (element.textContent.includes('+') ? '+' : '');
+            clearInterval(timer);
+        } else {
+            element.textContent = Math.floor(start) + (element.textContent.includes('+') ? '+' : '');
+        }
+    }, 16);
+};
+
+// Animate stats when they come into view
+const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+            const statNumber = entry.target.querySelector('.stat-number');
+            if (statNumber) {
+                const text = statNumber.textContent;
+                const number = parseInt(text.replace(/\D/g, ''));
+                if (!isNaN(number)) {
+                    statNumber.textContent = '0';
+                    animateCounter(statNumber, number);
+                    entry.target.classList.add('animated');
+                }
+            }
+        }
     });
-} else {
-    // Fallback for browsers that don't support lazy loading
-    const script = document.createElement('script');
-    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
-    document.body.appendChild(script);
-}
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.stat-item').forEach(stat => {
+    statsObserver.observe(stat);
+});
 
 // Console message for developers
 console.log('%cTotal Tox - Drug Testing Services', 'color: #2563eb; font-size: 20px; font-weight: bold;');
