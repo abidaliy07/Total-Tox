@@ -1,0 +1,78 @@
+<svg width="400" height="120" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradient for liquid in test tube -->
+    <linearGradient id="liquidGradient" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#0052A3;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00A8E8;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Shadow filter for checkmark -->
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="1"/>
+      <feOffset dx="1" dy="1" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.3"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Test Tube -->
+  <g id="test-tube">
+    <!-- Test tube body (dark blue outline) -->
+    <rect x="20" y="15" width="12" height="70" rx="6" fill="none" stroke="#0052A3" stroke-width="2.5"/>
+    
+    <!-- Test tube rim/opening -->
+    <ellipse cx="26" cy="15" rx="6" ry="2.5" fill="#0052A3"/>
+    
+    <!-- Liquid fill with gradient (fills about 2/3 of tube) -->
+    <rect x="22" y="45" width="8" height="35" fill="url(#liquidGradient)" rx="4"/>
+    
+    <!-- Bubbles in liquid (light blue) -->
+    <circle cx="24" cy="55" r="1.5" fill="#00D4AA" opacity="0.7"/>
+    <circle cx="28" cy="60" r="1" fill="#00D4AA" opacity="0.6"/>
+    <circle cx="26" cy="65" r="1.2" fill="#00D4AA" opacity="0.7"/>
+    <circle cx="29" cy="70" r="0.8" fill="#00D4AA" opacity="0.6"/>
+    <circle cx="24" cy="68" r="1" fill="#00D4AA" opacity="0.7"/>
+    <circle cx="30" cy="58" r="0.9" fill="#00D4AA" opacity="0.6"/>
+    
+    <!-- White checkmark with shadow (angled, extending beyond tube) -->
+    <path d="M 18 50 L 24 58 L 35 45" 
+          stroke="white" 
+          stroke-width="3.5" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"
+          fill="none"
+          filter="url(#shadow)"/>
+  </g>
+  
+  <!-- Text Elements -->
+  <g id="text">
+    <!-- Total Tox (dark blue, bold) -->
+    <text x="70" y="45" 
+          font-family="Inter, Arial, sans-serif" 
+          font-size="32" 
+          font-weight="700" 
+          fill="#0052A3">Total Tox</text>
+    
+    <!-- Horizontal line left -->
+    <line x1="70" y1="60" x2="85" y2="60" 
+          stroke="#999999" 
+          stroke-width="1"/>
+    
+    <!-- Drug Testing Services (light gray) -->
+    <text x="90" y="60" 
+          font-family="Inter, Arial, sans-serif" 
+          font-size="14" 
+          font-weight="400" 
+          fill="#999999">Drug Testing Services</text>
+    
+    <!-- Horizontal line right -->
+    <line x1="240" y1="60" x2="255" y2="60" 
+          stroke="#999999" 
+          stroke-width="1"/>
+  </g>
+</svg>
